@@ -455,7 +455,7 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
 
 <!-- ══ Ann Bar ══ -->
 <div id="annBar">
-  🎁 شحن مجاني للطلبات أكثر من 25,000 دينار &nbsp;•&nbsp; ✨ منتجات منزلية راقية &nbsp;•&nbsp; 📞 تواصل معنا عبر واتساب
+  🎁 شحن مجاني للطلبات أكثر من 100,000 دينار &nbsp;•&nbsp; ✨ منتجات منزلية راقية &nbsp;•&nbsp; 📞 تواصل معنا عبر واتساب
   <button class="ann-x" onclick="this.parentElement.style.display='none'">✕</button>
 </div>
 
@@ -530,7 +530,7 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
 <div class="feat-strip">
   <div class="feat-in">
     <div class="feat-item"><div class="feat-ico">🚚</div><div class="feat-txt"><strong>توصيل سريع</strong><span>لجميع المحافظات</span></div></div>
-    <div class="feat-item"><div class="feat-ico">↩️</div><div class="feat-txt"><strong>إرجاع مجاني</strong><span>خلال 7 أيام</span></div></div>
+    <div class="feat-item"><div class="feat-ico">↩️</div><div class="feat-txt"><strong>إرجاع مجاني عند وجود مشكلة في المنتج</strong><span>خلال 7 أيام</span></div></div>
     <div class="feat-item"><div class="feat-ico">🔒</div><div class="feat-txt"><strong>دفع آمن</strong><span>كاش عند الاستلام</span></div></div>
     <div class="feat-item"><div class="feat-ico">💬</div><div class="feat-txt"><strong>دعم على مدار الساعة</strong><span>واتساب وتيليكرام</span></div></div>
   </div>
@@ -614,9 +614,9 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
       </ul></div>
       <div class="ft-col"><h4>تواصل معنا</h4><ul>
         <li><a href="#" id="ftCity">📍 العراق — بغداد</a></li>
-        <li><a href="#" id="ftPhone">📱 07700000000</a></li>
-        <li><a href="#" id="ftInstaFt">📸 @homix_store_iq</a></li>
-        <li><a href="#" id="ftEmail">📧 info@homix.iq</a></li>
+        <li><a href="#" id="ftPhone">📱 07732000524</a></li>
+        <li><a href="#" id="ftInstaFt">📸 @homix_store1</a></li>
+        <li><a href="#" id="ftEmail">📧 info@homix</a></li>
       </ul></div>
     </div>
     <div class="ft-bot"><p>© 2025 Homix Store — جميع الحقوق محفوظة 🇮🇶 صُنع بـ ❤️ في العراق</p></div>
@@ -663,7 +663,7 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
   <div class="chm-in">
     <div class="chm-ttl"><span>🧾 إتمام الطلب</span><button class="chm-x" onclick="closeChm()">✕</button></div>
     <div class="cgrid">
-      <div class="fg"><label>الاسم الكامل *</label><input type="text" class="fc" id="coName" placeholder="علي حسين"></div>
+      <div class="fg"><label>الاسم الكامل *</label><input type="text" class="fc" id="coName" placeholder="احمد علي"></div>
       <div class="fg"><label>رقم الموبايل *</label><input type="tel" class="fc" id="coPhone" placeholder="07XXXXXXXXX"></div>
       <div class="fg"><label>المحافظة *</label>
         <select class="fc" id="coCity">
@@ -694,7 +694,6 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
       <div class="ctr grand"><span>الإجمالي النهائي</span><span id="coTot">0</span></div>
     </div>
     <div class="chm-sub">
-      <button class="btn-g" onclick="placeOrder()">✅ تأكيد الطلب</button>
       <button class="btn-wa" onclick="orderWA()">💬 إرسال عبر واتساب</button>
     </div>
   </div>
@@ -705,7 +704,7 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
   <div class="sucm-bd"></div>
   <div class="sucm-in">
     <div class="suc-ico">🎉</div>
-    <h2>انعجز طلبك!</h2>
+    <h2>انحجز طلبك!</h2>
     <p>شكراً لك 🙏 تم استلام طلبك بنجاح.<br>فريقنا راح يتواصل وياك بأسرع وقت.</p>
     <button onclick="closeSuc()" style="width:100%;padding:13px;background:var(--g800);color:white;border-radius:var(--r);font-size:15px;font-weight:800;cursor:pointer;border:none;font-family:'Cairo',sans-serif;">متابعة التسوق 🏠</button>
     <p class="ord-num" id="ordNumEl"></p>
@@ -733,15 +732,15 @@ const CFG = {
 
   /* ── معلومات المتجر ── */
   storeName : "Homix Store",
-  waNumber  : "9647700000000",   // رقم الواتساب (مع رمز الدولة بدون +)
-  instagram : "homix_store_iq",  // اسم حساب انستاكرام بدون @
+  waNumber  : "9647732000524",   // رقم الواتساب (مع رمز الدولة بدون +)
+  instagram : "homix_store1",  // اسم حساب انستاكرام بدون @
   email     : "info@homix.iq",
   city      : "العراق — بغداد",
-  phone     : "07700000000",
+  phone     : "07732000524",
 
   /* ── العملة والشحن ── */
   cur       : "دينار",
-  freeShip  : 25000,   // مبلغ التوصيل المجاني
+  freeShip  : 100000,   // مبلغ التوصيل المجاني
   shipCost  : 5000,    // تكلفة التوصيل
 
   /* ── مسار ملف البيانات (يُرفع مع الموقع على GitHub) ── */
@@ -1465,25 +1464,14 @@ function openCheckout() {
 
 function closeChm(){document.getElementById("chm").classList.remove("open");document.body.style.overflow="";}
 
-function placeOrder() {
+function orderWA() {
   const name=document.getElementById("coName").value.trim();
   const phone=document.getElementById("coPhone").value.trim();
   const city=document.getElementById("coCity").value;
   const addr=document.getElementById("coAddr").value.trim();
-  if(!name||!phone||!city||!addr){toast("⚠️ اكمل جميع الحقول المطلوبة","err");return;}
-  const num="HMX"+Date.now().toString().slice(-6);
-  document.getElementById("ordNumEl").textContent=`رقم الطلب: ${num}`;
-  closeChm(); S.cart=[]; saveCart(); updateCartUI();
-  setTimeout(()=>{document.getElementById("sucm").classList.add("open");},300);
-}
-
-function orderWA() {
-  const name=document.getElementById("coName").value.trim()||"—";
-  const phone=document.getElementById("coPhone").value.trim()||"—";
-  const city=document.getElementById("coCity").value||"—";
-  const addr=document.getElementById("coAddr").value.trim()||"—";
   const pay=document.getElementById("coPay").value;
   const notes=document.getElementById("coNotes").value.trim();
+  if(!name||!phone||!city||!addr||!pay){toast("⚠️ اكمل جميع الحقول المطلوبة","err");return;}
   const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
   const ship=sub>=CFG.freeShip?0:CFG.shipCost;
   const num="HMX"+Date.now().toString().slice(-6);
@@ -1494,6 +1482,9 @@ function orderWA() {
   S.cart.forEach(it=>{msg+=`• ${it.name} (#${it.code}) × ${it.qty} = ${fmt(it.price*it.qty)}\n`;});
   msg+=`\n💰 المجموع: ${fmt(sub)}\nالتوصيل: ${ship===0?"مجاني":fmt(ship)}\n*الإجمالي: ${fmt(sub+ship)}*`;
   window.open(`https://wa.me/${CFG.waNumber}?text=${encodeURIComponent(msg)}`,"_blank");
+  document.getElementById("ordNumEl").textContent=`رقم الطلب: ${num}`;
+  closeChm(); S.cart=[]; saveCart(); updateCartUI();
+  setTimeout(()=>{document.getElementById("sucm").classList.add("open");},300);
 }
 
 function closeSuc(){document.getElementById("sucm").classList.remove("open");document.body.style.overflow="";}
