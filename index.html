@@ -3,7 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Homix Store | منتجات منزلية راقية</title>
+
+<!-- ══ منع كاش المتصفح — يضمن تحميل آخر تعديل دايماً ══ -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Homix Store | متجر هوميكس — منتجات منزلية راقية في العراق</title>
+
+<!-- ══ SEO — Google ══ -->
+<meta name="description" content="Homix Store — متجر هوميكس لأرقى المنتجات المنزلية العصرية في العراق. أدوات مطبخ، تنظيف، وتنظيم بأفضل الأسعار مع توصيل لجميع المحافظات.">
+<meta name="keywords" content="Homix, هوميكس, Homix Store, متجر هوميكس, منتجات منزلية العراق, أدوات مطبخ, تنظيف, تنظيم, بغداد, العراق">
+<meta name="author" content="Homix Store">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://homixstore.com">
+
+<!-- Open Graph (مشاركة على السوشيال ميديا) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://homixstore.com">
+<meta property="og:title" content="Homix Store | منتجات منزلية راقية">
+<meta property="og:description" content="أرقى المنتجات المنزلية العصرية في العراق — توصيل لجميع المحافظات">
+<meta property="og:image" content="https://homixstore.com/logo-app.png">
+<meta property="og:locale" content="ar_IQ">
+<meta property="og:site_name" content="Homix Store">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Homix Store | منتجات منزلية راقية">
+<meta name="twitter:description" content="أرقى المنتجات المنزلية العصرية في العراق">
+<meta name="twitter:image" content="https://homixstore.com/logo-app.png">
 <!-- ══ أيقونة التطبيق عند الإضافة للشاشة الرئيسية ══ -->
 
 <!-- آيفون / آيباد — الأيقونة الرئيسية -->
@@ -162,28 +189,60 @@ input,select,textarea{font-family:'Cairo',sans-serif;}
 .sort-sel:focus{border-color:var(--g600);}
 .res-cnt{font-size:13px;color:var(--muted);}
 .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-.pcard{background:white;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:var(--tr);cursor:pointer;position:relative;}
-.pcard:hover{transform:translateY(-5px);box-shadow:var(--shm);}
+/* بطاقة المنتج — GPU accelerated */
+.pcard{background:white;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);cursor:pointer;position:relative;
+  transform:translateZ(0);        /* تفعيل GPU layer */
+  will-change:transform;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.pcard:hover{transform:translate3d(0,-5px,0);box-shadow:var(--shm);}
+
+/* الصورة */
 .card-img{position:relative;aspect-ratio:297/210;overflow:hidden;background:var(--g50);}
-.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;}
-.pcard:hover .card-img img{transform:scale(1.07);}
-.img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--g200);font-size:38px;position:absolute;top:0;left:0;}
-.img-ph p{font-size:11px;font-weight:700;color:var(--muted);}
-.bdg{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:99px;color:white;}
-.bdg-new{background:var(--g700);}.bdg-sale{background:#E53E3E;}
-.card-wish{position:absolute;top:10px;left:10px;width:30px;height:30px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:14px;transition:var(--tr);opacity:0;}
-.pcard:hover .card-wish,.card-wish.on{opacity:1;}
-.card-qadd{position:absolute;bottom:0;left:0;right:0;background:var(--g800);color:white;font-size:13px;font-weight:700;padding:9px;text-align:center;transform:translateY(100%);transition:var(--tr);cursor:pointer;font-family:'Cairo',sans-serif;}
-.pcard:hover .card-qadd{transform:translateY(0);}
+.card-img img{width:100%;height:100%;object-fit:cover;
+  transform:translateZ(0);
+  transition:opacity .3s,transform .4s ease;
+  will-change:transform;
+}
+.pcard:hover .card-img img{transform:translate3d(0,0,0) scale(1.05);}
+
+/* زر الإضافة — opacity فقط بدون translateY */
+.card-qadd{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--g800);color:white;font-size:13px;font-weight:700;
+  padding:9px;text-align:center;cursor:pointer;
+  font-family:'Cairo',sans-serif;border:none;
+  opacity:0;
+  transform:translateZ(0);
+  transition:opacity .2s ease;
+  will-change:opacity;
+  pointer-events:none;
+}
+.pcard:hover .card-qadd{opacity:1;pointer-events:auto;}
 .card-qadd:hover{background:var(--g900);}
-.card-body{padding:12px 14px 14px;}
+
+/* زر المفضلة */
+.card-wish{
+  position:absolute;top:10px;left:10px;width:30px;height:30px;
+  background:white;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);
+  font-size:14px;
+  opacity:0;
+  transform:translateZ(0);
+  transition:opacity .2s ease;
+  will-change:opacity;
+  pointer-events:none;
+}
+.pcard:hover .card-wish,.card-wish.on{opacity:1;pointer-events:auto;}
+.card-body{padding:12px 14px 14px;display:flex;flex-direction:column;}
 .card-cat{font-size:10px;color:var(--g600);font-weight:700;letter-spacing:.8px;margin-bottom:3px;}
-.card-name{font-size:14px;font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:3px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-.card-code{font-size:10px;color:var(--muted);margin-bottom:7px;}
-.card-ft{display:flex;justify-content:space-between;align-items:flex-end;}
-.card-price{font-size:16px;font-weight:900;color:var(--g800);}
-.card-op{font-size:11px;color:var(--muted);text-decoration:line-through;}
-.stk{font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;}
+.card-name{font-size:14px;font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:3px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:40px;}
+.card-code{font-size:10px;color:var(--muted);margin-bottom:6px;}
+.card-colors-row{min-height:22px;margin-bottom:6px;}
+.card-ft{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;border-top:1px solid var(--border);}
+.card-price{font-size:15px;font-weight:900;color:var(--g800);}
+.card-op{font-size:10px;color:var(--muted);text-decoration:line-through;margin-top:1px;}
+.stk{font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;white-space:nowrap;}
 .stk.ok{color:#166534;background:#DCFCE7;}
 .stk.low{color:#92400E;background:#FEF3C7;}
 .stk.no{color:#991B1B;background:#FEE2E2;}
@@ -202,7 +261,23 @@ input,select,textarea{font-family:'Cairo',sans-serif;}
 .empty-s .ei{font-size:52px;margin-bottom:12px;}
 .empty-s h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:5px;}
 
-/* Overlay */
+/* placeholder وشارة الخصم */
+.img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--g200);font-size:38px;position:absolute;top:0;left:0;background:var(--g50);}
+.img-ph p{font-size:11px;font-weight:700;color:var(--muted);}
+.bdg{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:99px;color:white;z-index:2;}
+.bdg-new{background:var(--g700);}.bdg-sale{background:#E53E3E;}
+.card-img img[src]{background:var(--g50);}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.card-img::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--g50) 25%,var(--g100) 50%,var(--g50) 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.4s infinite;
+  z-index:0;pointer-events:none;
+}
+.card-img img{position:relative;z-index:1;}
+.card-img img[style*="opacity:1"]{z-index:1;}
+
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1100;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(2px);}
 .ov.open{opacity:1;pointer-events:all;}
 
@@ -243,10 +318,27 @@ input,select,textarea{font-family:'Cairo',sans-serif;}
 .pm{position:fixed;inset:0;z-index:1300;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;}
 .pm.open{opacity:1;pointer-events:all;}
 .pm-bd{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
-.pm-in{position:relative;z-index:1;background:white;border-radius:var(--rlg);max-width:900px;width:100%;max-height:90vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shl);transform:scale(.95);transition:transform .3s;}
+.pm-in{
+  position:relative;z-index:1;background:white;border-radius:var(--rlg);
+  max-width:960px;width:100%;max-height:92vh;overflow:hidden;
+  display:grid;grid-template-columns:1.1fr 0.9fr;
+  box-shadow:var(--shl);transform:scale(.96);transition:transform .25s ease;
+}
 .pm.open .pm-in{transform:scale(1);}
-.pm-img{background:var(--g50);position:relative;min-height:400px;}
-.pm-img img{width:100%;height:100%;object-fit:cover;}
+.pm-img{
+  background:var(--g50);position:relative;
+  /* ارتفاع ثابت يساوي ارتفاع جانب المعلومات */
+  min-height:520px;
+  max-height:92vh;
+  overflow:hidden;
+}
+.pm-img img{
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;
+  object-fit:contain;       /* يظهر الصورة كاملة بدون قطع */
+  object-position:center;
+  background:var(--g50);
+}
 .pm-img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--g200);font-size:68px;position:absolute;top:0;left:0;}
 .pm-x{position:absolute;top:12px;left:12px;z-index:2;width:34px;height:34px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);box-shadow:var(--sh);transition:var(--tr);cursor:pointer;}
 .pm-x:hover{background:var(--g900);color:white;}
@@ -342,7 +434,7 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
 /* Responsive */
 @media(max-width:1200px){.pgrid{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:1000px){.promo-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr);}.ft-grid{grid-template-columns:repeat(2,1fr);}.pm-in{grid-template-columns:1fr;}.pm-img{min-height:260px;}.feat-in{gap:18px;}.cgrid{grid-template-columns:1fr;}.cgrid .fg.full{grid-column:auto;}}
+@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr);}.ft-grid{grid-template-columns:repeat(2,1fr);}.pm-in{grid-template-columns:1fr;max-height:95vh;}.pm-img{min-height:52vw;max-height:56vw;}.feat-in{gap:18px;}.cgrid{grid-template-columns:1fr;}.cgrid .fg.full{grid-column:auto;}}
 @media(max-width:640px){.pgrid{grid-template-columns:repeat(2,1fr);gap:10px;}.hero-in{padding:48px 20px;}.cart-sb{width:100%;}.ft-grid{grid-template-columns:1fr;}.feat-in{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.chm-in{padding:20px;}.chm-sub{flex-direction:column;}.promo-grid{grid-template-columns:1fr;}}
 @media(max-width:380px){.pgrid{grid-template-columns:1fr;}}
 </style>
@@ -463,6 +555,11 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
           <option value="na">الاسم أ–ي</option>
           <option value="nd">الاسم ي–أ</option>
         </select>
+        <button id="stockToggle" onclick="toggleStockFilter()"
+          style="padding:8px 14px;border-radius:var(--rsm);font-size:13px;font-weight:700;border:1.5px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:var(--tr);display:flex;align-items:center;gap:6px;font-family:'Cairo',sans-serif;">
+          <span id="stockToggleIco">📦</span>
+          <span id="stockToggleTxt">المتوفر فقط</span>
+        </button>
       </div>
     </div>
     <div class="prd-ctrl">
@@ -748,7 +845,7 @@ const PROMO = [
 
 
 /* ── State ── */
-let S = { all:[], filtered:[], cart:[], wish:[], cat:"all", q:"", sort:"def", curProd:null, mqty:1, cartOpen:false };
+let S = { all:[], filtered:[], cart:[], wish:[], cat:"all", q:"", sort:"def", onlyInStock:false, curProd:null, mqty:1, cartOpen:false };
 
 /* ── Init ── */
 window.addEventListener("DOMContentLoaded", async () => {
@@ -815,7 +912,9 @@ function renderPromoCards() {
 /* ── Load data.xlsx ── */
 async function loadDataFile() {
   try {
-    const res = await fetch(CFG.dataFile);
+    // v= يمنع الكاش — يتغير كل جلسة
+    const bust = Date.now();
+    const res  = await fetch(`${CFG.dataFile}?v=${bust}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = await res.arrayBuffer();
     const wb  = XLSX.read(buf, {type:"array"});
@@ -864,6 +963,7 @@ function parseRows(data) {
   }
   if (!prods.length) { showErr(); return; }
   S.all = prods; S.filtered = [...prods];
+  prebuildImagePaths(prods);   // بنِ مسارات الصور مرة واحدة
   document.getElementById("statusBox").classList.add("gone");
   document.getElementById("prdsHead").style.display = "block";
   buildCats(); renderProds();
@@ -971,39 +1071,82 @@ function codeVariants(code) {
   const seen = new Set();
   const add  = v => { if (v && v.trim()) seen.add(v.trim()); };
 
-  add(c);                                              // 1 — كما هو
-  add(c.replace(/\s*-\s*/g,"-"));                     // 2 — بدون مسافة حول الشرطة
-  const noSym = c.replace(/[\s\-_]+/g,"");
-  add(noSym);                                          // 3 — بدون رموز
-  add(noSym.toLowerCase());                            // 4 — صغير
-  add(noSym.toUpperCase());                            // 5 — كبير
-  add(noSym.charAt(0).toUpperCase()+noSym.slice(1).toLowerCase()); // 6 — أول كبير
-  add(c.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g,""));   // 7 — حروف وأرقام فقط
-  add(c.replace(/^0+/,""));                            // 8 — بدون أصفار بداية
+  // ١ — كما هو
+  add(c);
 
+  // ٢ — بدون مسافة حول الشرطة  "G06 - P" → "G06-P"
+  add(c.replace(/\s*-\s*/g, "-"));
+
+  // ٣ — بدون كل الرموز والمسافات  "G06-P" → "G06P"
+  const noSym = c.replace(/[\s\-_]+/g, "");
+  add(noSym);
+  add(noSym.toLowerCase());
+  add(noSym.toUpperCase());
+
+  // ٤ — أول حرف كبير والباقي صغير  "g06p" → "G06p"
+  add(noSym.charAt(0).toUpperCase() + noSym.slice(1).toLowerCase());
+
+  // ٥ — حروف وأرقام فقط بدون أي رمز
+  const letNum = c.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, "");
+  add(letNum);
+  add(letNum.toLowerCase());
+  add(letNum.toUpperCase());
+
+  // ٦ — بدون أصفار البداية  "09712" → "9712"
+  add(c.replace(/^0+/, ""));
+  add(noSym.replace(/^0+/, ""));
+
+  // ٧ — حروف+أرقام ثم شرطة ثم حرف نهاية
+  //      "G06P" ← → "G06-P"  و "G565M" ← → "G565-M"
+  add(c.replace(/([A-Za-z]+)(\d+)([A-Za-z]+)$/, "$1$2-$3"));        // G06P   → G06-P
+  add(noSym.replace(/([A-Za-z]+)(\d+)([A-Za-z]+)$/, "$1$2-$3"));    // G06P   → G06-P
+  add(c.replace(/([A-Za-z0-9]+)-([A-Za-z]+)$/, "$1$2"));             // G06-P  → G06P
+  add(c.replace(/([A-Za-z]+)(\d+)-([A-Za-z]+)$/, "$1$2$3"));         // G06-P  → G06P
+
+  // ٨ — شرطة بين الأرقام والحرف النهائي مع lowercase/uppercase
+  const withDash = noSym.replace(/([A-Za-z]+)(\d+)([A-Za-z]+)$/, "$1$2-$3");
+  add(withDash);
+  add(withDash.toLowerCase());
+  add(withDash.toUpperCase());
+
+  // ٩ — فصل الحروف عن الأرقام بشرطة في البداية "G06" → "G-06"
+  add(c.replace(/^([A-Za-z]+)(\d)/, "$1-$2"));
+  add(noSym.replace(/^([A-Za-z]+)(\d)/, "$1-$2"));
+
+  // ١٠ — الحرف النهائي بكبير وصغير لكل الاحتمالات السابقة
+  seen.forEach(v => {
+    if (/[a-zA-Z]$/.test(v)) {
+      add(v.slice(0,-1) + v.slice(-1).toUpperCase());
+      add(v.slice(0,-1) + v.slice(-1).toLowerCase());
+    }
+  });
+
+  seen.delete("");
   return [...seen];
 }
 
-/* ── مسبق حساب المسارات مرة واحدة لكل منتج ── */
-function buildImagePaths(code) {
+/* ── كاش مسارات الصور (يُبنى مرة واحدة عند تحميل الإكسل) ── */
+const IMG_CACHE = {};
+
+function prebuildImagePaths(products) {
   const exts = [".webp",".jpg",".jpeg",".png"];
-  const vars = codeVariants(code);
-  const paths = [];
-  // الأولوية: كل variant بـ webp أولاً، ثم jpg، إلخ
-  for (const ext of exts)
-    for (const v of vars)
-      paths.push(`${CFG.imgDir}${v}${ext}`);
-  return paths;
+  products.forEach(p => {
+    const vars  = codeVariants(p.code);
+    const paths = [];
+    for (const ext of exts)
+      for (const v of vars)
+        paths.push(`${CFG.imgDir}${v}${ext}`);
+    IMG_CACHE[p.code] = paths;
+  });
 }
 
 /* ── صورة مع lazy load + blur-up + fallback ── */
 function imgWithFallback(code, extraStyle="") {
   const uid   = Math.random().toString(36).slice(2,7);
-  const paths = buildImagePaths(code);
+  const paths = IMG_CACHE[code] || buildImagePaths(code);
   const first = paths[0];
   const rest  = paths.slice(1);
 
-  // بنِ سلسلة onerror من آخر للأول
   let chain = `this.style.display='none';document.getElementById('ph${uid}').style.display='flex';`;
   for (let i = rest.length - 1; i >= 0; i--) {
     chain = `this.src='${rest[i]}';this.onerror=function(){${chain}};`;
@@ -1013,13 +1156,23 @@ function imgWithFallback(code, extraStyle="") {
     <img src="${first}"
       loading="lazy"
       decoding="async"
-      style="width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform .45s ease;opacity:0;${extraStyle}"
+      style="width:100%;height:100%;object-fit:cover;transition:opacity .3s;opacity:0;${extraStyle}"
       onload="this.style.opacity='1'"
       onerror="${chain}"
       alt="${code}">
     <div id="ph${uid}" class="img-ph" style="display:none">
       <span>🏠</span><p>${code}</p>
     </div>`;
+}
+
+function buildImagePaths(code) {
+  const exts = [".webp",".jpg",".jpeg",".png"];
+  const vars = codeVariants(code);
+  const paths = [];
+  for (const ext of exts)
+    for (const v of vars)
+      paths.push(`${CFG.imgDir}${v}${ext}`);
+  return paths;
 }
 
 /* ── Categories ── */
@@ -1043,17 +1196,43 @@ function filterCat(cat) {
 function handleSearch(q) { S.q=q.trim().toLowerCase(); applyFilters(); }
 function sortProds(v)    { S.sort=v; applyFilters(); }
 
-function applyFilters() {
-  let r=[...S.all];
-  if(S.cat!=="all") r=r.filter(p=>p.cat===S.cat);
-  if(S.q) r=r.filter(p=>p.name.toLowerCase().includes(S.q)||p.code.toLowerCase().includes(S.q)||p.desc.toLowerCase().includes(S.q));
-  switch(S.sort){
-    case"pa":r.sort((a,b)=>a.price-b.price);break;
-    case"pd":r.sort((a,b)=>b.price-a.price);break;
-    case"na":r.sort((a,b)=>a.name.localeCompare(b.name,"ar"));break;
-    case"nd":r.sort((a,b)=>b.name.localeCompare(a.name,"ar"));break;
+function toggleStockFilter() {
+  S.onlyInStock = !S.onlyInStock;
+  const btn = document.getElementById("stockToggle");
+  const ico = document.getElementById("stockToggleIco");
+  const txt = document.getElementById("stockToggleTxt");
+  if (S.onlyInStock) {
+    btn.style.background = "var(--g800)";
+    btn.style.color      = "white";
+    btn.style.borderColor= "var(--g800)";
+    ico.textContent = "✅";
+    txt.textContent = "المتوفر فقط";
+  } else {
+    btn.style.background  = "white";
+    btn.style.color       = "var(--muted)";
+    btn.style.borderColor = "var(--border)";
+    ico.textContent = "📦";
+    txt.textContent = "المتوفر فقط";
   }
-  S.filtered=r; renderProds();
+  applyFilters();
+}
+
+function applyFilters() {
+  let r = [...S.all];
+  if (S.cat !== "all")   r = r.filter(p => p.cat === S.cat);
+  if (S.onlyInStock)     r = r.filter(p => p.stock > 0);
+  if (S.q)               r = r.filter(p =>
+    p.name.toLowerCase().includes(S.q) ||
+    p.code.toLowerCase().includes(S.q) ||
+    p.desc.toLowerCase().includes(S.q));
+  switch(S.sort){
+    case"pa": r.sort((a,b)=>a.price-b.price); break;
+    case"pd": r.sort((a,b)=>b.price-a.price); break;
+    case"na": r.sort((a,b)=>a.name.localeCompare(b.name,"ar")); break;
+    case"nd": r.sort((a,b)=>b.name.localeCompare(a.name,"ar")); break;
+  }
+  S.filtered = r;
+  renderProds();
 }
 
 /* ── Render ── */
@@ -1072,7 +1251,7 @@ function renderProds() {
     return `
 <div class="pcard" onclick="openPM('${p.code}')">
   <div class="card-img">
-    ${imgWithFallback(p.code,"transition:transform .45s ease")}
+    ${imgWithFallback(p.code,"transition:opacity .35s,transform .45s ease")}
     ${disc?`<span class="bdg bdg-sale">-${pct}%</span>`:""}
     <button class="card-wish ${inW?"on":""}" id="w-${p.code}"
       onclick="event.stopPropagation();toggleWish('${p.code}')">${inW?"❤️":"🤍"}</button>
@@ -1082,8 +1261,8 @@ function renderProds() {
     <p class="card-cat">${p.cat}</p>
     <p class="card-name">${p.name}</p>
     <p class="card-code">#${p.code}</p>
-    ${colorDotsHtml(p.colors,"sm")}
-    <div class="card-ft" style="margin-top:8px">
+    <div class="card-colors-row">${colorDotsHtml(p.colors,"sm")}</div>
+    <div class="card-ft">
       <div>
         <p class="card-price">${p.price.toLocaleString("ar-IQ")} ${CFG.cur}</p>
         ${disc?`<p class="card-op">${p.oldp.toLocaleString("ar-IQ")} ${CFG.cur}</p>`:""}
@@ -1096,16 +1275,20 @@ function renderProds() {
 
 /* ── Product Modal ── */
 function openPM(code) {
-  const p=S.all.find(x=>x.code===code); if(!p) return;
+  const p = S.all.find(x=>x.code===code); if(!p) return;
   S.curProd=p; S.mqty=1;
+
   const disc=p.oldp&&p.oldp>p.price;
   const pct =disc?Math.round((1-p.price/p.oldp)*100):0;
   const inW =S.wish.includes(p.code);
   const stk =stkInfo(p.stock);
+
+  // ارسم المحتوى أولاً
   document.getElementById("pmImg").innerHTML=`
     <button class="pm-x" onclick="closePM()">✕</button>
-    ${imgWithFallback(p.code,"position:absolute;top:0;left:0;")}
-    ${disc?`<div style="position:absolute;top:14px;right:14px;background:#E53E3E;color:white;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700">-${pct}%</div>`:""}`;
+    ${imgWithFallback(p.code,"")}
+    ${disc?`<div style="position:absolute;top:14px;right:14px;background:#E53E3E;color:white;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;z-index:3">-${pct}%</div>`:""}`;
+
   document.getElementById("pmInfo").innerHTML=`
     <span class="pm-cat">${p.cat}</span>
     <h2 class="pm-name">${p.name}</h2>
@@ -1115,7 +1298,7 @@ function openPM(code) {
       <p class="pm-price">${p.price.toLocaleString("ar-IQ")} <span class="cur">${CFG.cur}</span></p>
       ${disc?`<p class="pm-op">${p.oldp.toLocaleString("ar-IQ")} ${CFG.cur}</p>`:""}
     </div>
-    <span class="stk ${stk.cls}" style="font-size:12px;padding:4px 12px;">${stk.txt}</span>
+    <span class="stk ${stk.cls}" style="font-size:12px;padding:4px 12px;width:fit-content">${stk.txt}</span>
     ${p.colors&&p.colors.length?`
     <div>
       <p class="pm-qlbl">🎨 الألوان المتوفرة <span style="font-size:11px;color:var(--muted);font-weight:400">(${p.colors.length} لون)</span></p>
@@ -1139,6 +1322,8 @@ function openPM(code) {
         ${inW?"❤️ في المفضلة":"🤍 أضف للمفضلة"}
       </button>
     </div>`;
+
+  // افتح بعد رسم المحتوى مباشرة
   document.getElementById("pm").classList.add("open");
   document.getElementById("ov").classList.add("open");
   document.body.style.overflow="hidden";
