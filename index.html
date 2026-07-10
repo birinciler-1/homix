@@ -544,7 +544,7 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
 <div class="feat-strip">
   <div class="feat-in">
     <div class="feat-item"><div class="feat-ico">🚚</div><div class="feat-txt"><strong>توصيل سريع</strong><span>لجميع المحافظات</span></div></div>
-    <div class="feat-item"><div class="feat-ico">↩️</div><div class="feat-txt"><strong>إرجاع مجاني</strong><span>خلال 7 أيام</span></div></div>
+    <div class="feat-item"><div class="feat-ico">↩️</div><div class="feat-txt"><strong>ضمان الجودة</strong><span>إرجاع خلال 7 أيام لو فيه خلل</span></div></div>
     <div class="feat-item"><div class="feat-ico">🔒</div><div class="feat-txt"><strong>دفع آمن</strong><span>كاش عند الاستلام</span></div></div>
     <div class="feat-item"><div class="feat-ico">💬</div><div class="feat-txt"><strong>دعم على مدار الساعة</strong><span>واتساب وتيليكرام</span></div></div>
   </div>
@@ -627,13 +627,13 @@ footer{background:#111E17;color:rgba(255,255,255,.62);padding:48px 20px 20px;}
         <li><a href="#">شروط الاستخدام</a></li>
       </ul></div>
       <div class="ft-col"><h4>تواصل معنا</h4><ul>
-        <li><a href="#" id="ftCity">📍 العراق — بغداد</a></li>
+        <li><a href="#" id="ftCity">📍 العراق</a></li>
         <li><a href="#" id="ftPhone">📱 07732000524</a></li>
-        <li><a href="#" id="ftInstaFt">📸 @homix_store_iq</a></li>
-        <li><a href="#" id="ftEmail">📧 info@homix.iq</a></li>
+        <li><a href="#" id="ftInstaFt">📸 @homix_store1</a></li>
+        <li>🔄 سياسة الإرجاع: خلال 7 أيام لو فيه خلل</li>
       </ul></div>
     </div>
-    <div class="ft-bot"><p>© 2025 Homix Store — جميع الحقوق محفوظة 🇮🇶 صُنع بـ ❤️ في العراق</p></div>
+    <div class="ft-bot"><p>© 2026 Homix Store — جميع الحقوق محفوظة 🇮🇶 صُنع بـ ❤️ في العراق</p></div>
   </div>
 </footer>
 
@@ -747,9 +747,9 @@ const CFG = {
   /* ── معلومات المتجر ── */
   storeName : "Homix Store",
   waNumber  : "9647732000524",   // رقم الواتساب (مع رمز الدولة بدون +)
-  instagram : "homix_store_iq",  // اسم حساب انستاكرام بدون @
+  instagram : "homix_store1",  // اسم حساب انستاكرام بدون @
   email     : "info@homix.iq",
-  city      : "العراق — بغداد",
+  city      : "العراق",
   phone     : "07732000524",
 
   /* ── العملة والشحن ── */
@@ -779,7 +779,7 @@ const HERO = {
      مثال:  "./images/banner.webp"
      أو رابط خارجي: "https://example.com/banner.jpg"
      اتركه فارغ ("") للحفاظ على الخلفية الخضراء الافتراضية */
-  bgImage : "",
+  bgImage : "./images/banner.webp",
 
 };
 
@@ -803,7 +803,7 @@ const PROMO = [
 
   /* ══ البطاقة الأولى (أعلى يمين) ══ */
   {
-    tag     : "🔥 عرض خاص",
+    tag     : "✨ الأكثر طلباً",
     title   : "مجموعة المطبخ الكاملة",
     sub     : "أدوات طبخ راقية بأسعار لا تنافس",
     btn     : "تسوق هسه",
@@ -816,8 +816,8 @@ const PROMO = [
   /* ══ البطاقة الثانية (أعلى يسار) ══ */
   {
     tag     : "⭐ جديد",
-    title   : "أدوات التنظيف الذكية",
-    sub     : "نظّف بيتك بشكل احترافي",
+    title   : "منتجات تنظيف وغسل الأطفال",
+    sub     : "عناية لطيفة وآمنة بأدق تفاصيل طفلك",
     btn     : "اكتشف",
     // ↓ صورة البطاقة — ضع اسم الملف (موجود في مجلد images/)
     img     : "./images/promo2.webp",
@@ -827,7 +827,7 @@ const PROMO = [
 
   /* ══ البطاقة الثالثة (أسفل يمين) ══ */
   {
-    tag     : "💛 تخفيضات",
+    tag     : "🌟 مفضّلة الزبائن",
     title   : "حلول التنظيم الأنيقة",
     sub     : "رتّب بيتك بطريقة عصرية",
     btn     : "اشتري هسه",
@@ -888,8 +888,6 @@ function applyConfig() {
   document.getElementById("ftCity").textContent = `📍 ${CFG.city}`;
   document.getElementById("ftPhone").textContent = `📱 ${CFG.phone}`;
   document.getElementById("ftPhone").href = `tel:${CFG.phone}`;
-  document.getElementById("ftEmail").textContent = `📧 ${CFG.email}`;
-  document.getElementById("ftEmail").href = `mailto:${CFG.email}`;
 }
 
 /* ── Hero ── */
